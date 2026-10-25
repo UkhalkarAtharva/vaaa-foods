@@ -1,0 +1,410 @@
+<!DOCTYPE html><html lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport">
+<meta content="mobile_tab" name="shell-type">
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600;1,700&amp;family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&amp;family=Caveat:wght@600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "cream-bg": "#FFF6E3",
+            "sand-bg": "#F4E2BE",
+            "maroon-hero": "#7A1020",
+            "maroon-dark": "#4E0A15",
+            "turmeric": "#F4B72E",
+            "turmeric-light": "#FDE68A",
+            "coriander": "#3E7B3F",
+            "coriander-light": "#EAF5EB",
+            "ink-brown": "#2B1810",
+            "ink-muted": "#68483B",
+            "wa-green": "#25D366"
+          },
+          fontFamily: {
+            serif: ["'Playfair Display'", "serif"],
+            sans: ["'Plus Jakarta Sans'", "sans-serif"],
+            hand: ["'Caveat'", "cursive"]
+          },
+          keyframes: {
+            marquee: {
+              '0%': { transform: 'translateX(0%)' },
+              '100%': { transform: 'translateX(-50%)' }
+            },
+            spinSlow: {
+              '0%': { transform: 'rotate(0deg)' },
+              '100%': { transform: 'rotate(360deg)' }
+            }
+          },
+          animation: {
+            marquee: 'marquee 16s linear infinite',
+            'spin-slow': 'spinSlow 18s linear infinite'
+          },
+          boxShadow: {
+            'tactile': '2px 4px 0px #2B1810',
+            'tactile-sm': '1.5px 2.5px 0px #2B1810',
+            'tactile-lg': '3px 6px 0px #2B1810',
+            'tactile-pressed': '1px 1px 0px #2B1810'
+          }
+        }
+      }
+    };
+  </script>
+<style>
+    @layer base {
+      html, body {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        min-height: 100%;
+        background-color: #FFF6E3;
+        color: #2B1810;
+        font-family: 'Plus Jakarta Sans', sans-serif;
+      }
+      body {
+        overscroll-behavior-y: none;
+      }
+      .pb-safe { padding-bottom: env(safe-area-inset-bottom, 0px); }
+      .pt-safe { padding-top: env(safe-area-inset-top, 0px); }
+    }
+    ::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
+</head>
+<body class="bg-cream-bg text-ink-brown min-h-screen flex flex-col antialiased selection:bg-turmeric selection:text-maroon-dark">
+<!-- TOP APP BAR / HEADER -->
+<header class="fixed top-0 w-full z-50 bg-[#FFF6E3]/95 backdrop-blur-md border-b-2 border-ink-brown/15 shadow-[0_2px_12px_rgba(43,24,16,0.04)] pt-safe">
+<div class="h-16 px-4 flex items-center justify-between">
+<!-- Existing Logo element kept verbatim -->
+<div class="flex items-center gap-2.5 min-w-0">
+<img alt="Vaaa Foods Brand Logo" class="h-9 w-auto object-contain shrink-0" src="https://lh3.googleusercontent.com/aida/AEtjO1XnXZyfC90qosrW1fKsE8LrEjUfANBDSuBcq7-8LCfezyAtNVrOcZAqrLd8PgnEe7z2wXvP0T6fYTFQgqQ3lttXoenoWgyYBr3rGMSnTr11ThXFYetssxYFdGrQhOPP0NCImx_fz7y5jZntK4J0r561Pe49u7z3P3ZcGnV-rM0BqTBsoTZjNea84MfpKw7VcprtKfAyphPxq94QAGpVQKCCQ1fsv6RR0YMFgK542n47mk4z2L-qTx9WMD8">
+<div class="flex flex-col truncate">
+<span class="font-serif font-bold text-lg text-maroon-hero leading-tight tracking-tight">Vaaa Foods</span>
+<span class="font-sans text-[11px] font-extrabold uppercase tracking-widest text-[#B45309]">Puris &amp; Namkeen</span>
+</div>
+</div>
+<!-- Action badges & Quick Call -->
+<div class="flex items-center gap-2 shrink-0">
+<span class="hidden sm:inline-flex items-center gap-1 bg-coriander-light text-coriander border border-coriander/30 px-2.5 py-1 rounded-full text-xs font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-coriander animate-pulse"></span>
+          Fresh Batches Daily
+        </span>
+<a aria-label="Call Kitchen" class="w-10 h-10 rounded-full bg-sand-bg border-2 border-ink-brown flex items-center justify-center text-maroon-hero shadow-tactile-sm active:translate-y-0.5 active:shadow-none transition-all" href="tel:+919820144521">
+<span class="material-symbols-outlined text-[20px]">call</span>
+</a>
+</div>
+</div>
+</header>
+<!-- MAIN SCROLLABLE CONTENT -->
+<main class="flex flex-col relative w-full pt-16 pb-28">
+<!-- 1. HERO SECTION -->
+<section class="relative px-4 pt-5 pb-8 flex flex-col items-center overflow-hidden">
+<!-- Doodled Organic Shapes / Sesame Seeds / Curry Leaf SVGs in background -->
+<div class="absolute top-6 left-3 w-8 h-8 opacity-25 pointer-events-none rotate-12">
+<svg fill="#7A1020" viewBox="0 0 24 24"><path d="M12 2C6.5 2 2 6.5 2 12c0 4.5 3 8.3 7.1 9.5-.1-.7-.1-1.5 0-2.2C6 18.2 4 15.4 4 12c0-4.4 3.6-8 8-8s8 3.6 8 8c0 3.3-2 6.1-5 7.2.1.7.1 1.5 0 2.2 4.1-1.2 7-5 7-9.4 0-5.5-4.5-10-10-10z"></path></svg>
+</div>
+<div class="absolute top-28 right-2 w-6 h-6 opacity-30 pointer-events-none -rotate-45">
+<svg fill="#3E7B3F" viewBox="0 0 24 24"><path d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66.95-2.3c.48.17.98.3 1.34.3C19 20 22 3 22 3c-1 2-8 2.25-13 3.75V8c3.35 0 6.65 0 8 0z"></path></svg>
+</div>
+<div class="absolute bottom-16 left-6 w-5 h-5 opacity-25 pointer-events-none rotate-45">
+<!-- Crumb dot cluster -->
+<svg fill="#F4B72E" viewBox="0 0 20 20"><circle cx="4" cy="4" r="2.5"></circle><circle cx="14" cy="7" r="1.8"></circle><circle cx="9" cy="15" r="2.2"></circle></svg>
+</div>
+<!-- Top Handcrafted Badge with Tactile Look -->
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-sand-bg border-2 border-ink-brown shadow-tactile-sm -rotate-1 mb-4"><span class="w-2 h-2 rounded-full bg-coriander"></span><span class="font-sans text-xs font-bold uppercase tracking-wider text-ink-brown">Namaskar! Mother &amp; Daughter Kitchen • Pune</span></div>
+<!-- Chunky Editorial Serif Headlines -->
+<div class="flex flex-col items-center text-center max-w-sm mb-5">
+<h1 class="font-serif text-[34px] leading-[1.1] font-bold text-maroon-hero tracking-tight">
+          Crunch that feels <br>
+<span class="relative inline-block mt-0.5">
+<span class="relative z-10 font-serif italic text-maroon-dark">like home.</span>
+<mark class="absolute -bottom-1 left-0 w-full h-3.5 bg-turmeric/60 -rotate-1 rounded-sm -z-0"></mark>
+</span>
+</h1>
+<p class="font-hand text-2xl text-maroon-hero font-bold mt-2 -rotate-1">
+          "Crispy Bites... Happier Times!"
+        </p>
+</div>
+<!-- Hero Polaroid / Tilted Food Photo Placeholder (Strictly No AI Food Photo) -->
+<div class="relative w-full max-w-sm mx-auto my-2">
+<!-- Floating Tactile Sticker (Sticker 1) -->
+<div class="absolute -top-3 -right-2 z-20 bg-turmeric text-ink-brown font-extrabold text-[11px] uppercase tracking-wider px-3 py-1.5 rounded-xl border-2 border-ink-brown shadow-tactile rotate-6 flex items-center gap-1">
+<span class="">✨</span> Single-Use Oil
+        </div>
+<!-- Animated Rotating Circular Badge SVG -->
+<div class="absolute -bottom-5 -left-3 z-20 w-24 h-24 pointer-events-none select-none">
+<div class="relative w-full h-full animate-spin-slow">
+<svg class="w-full h-full" viewBox="0 0 100 100">
+<defs>
+<path d="M 50, 50 m -35, 0 a 35,35 0 1,1 70,0 a 35,35 0 1,1 -70,0" fill="none" id="circlePath"></path>
+</defs>
+<circle cx="50" cy="50" fill="#F4E2BE" r="46" stroke="#2B1810" stroke-width="2.5"></circle>
+<text fill="#7A1020" font-family="'Plus Jakarta Sans', sans-serif" font-size="7.5" font-weight="800" letter-spacing="1.2">
+<textPath href="#circlePath" startOffset="0%">
+                  • HOMEMADE • CRISPY • FRESH • MADE WITH LOVE
+                </textPath>
+</text>
+</svg>
+<div class="absolute inset-0 m-auto w-7 h-7 rounded-full bg-turmeric flex items-center justify-center border-2 border-ink-brown text-maroon-hero font-bold text-xs">
+              🌿
+            </div>
+</div>
+</div>
+<!-- Polaroid Frame Container -->
+<div class="bg-white p-3.5 pb-5 rounded-3xl border-2 border-ink-brown shadow-tactile-lg -rotate-1">
+<!-- Tactile Placeholder Block for Hero Photo -->
+<div class="w-full aspect-[4/3] rounded-2xl overflow-hidden relative border-2 border-ink-brown"><img alt="Crispy homemade golden namkeen puris in a rustic wooden bowl on jute" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1V9QXMulgSpJenFTgHeh5XSGP_sk135qlk8FY1GbmtUPCHt5RURN5ZiGiN9vA5x1L81RZtobFgJg22UBzm8AxPc2vRLrcjqUNKyscQQFjapxrEYTGBNWS4gZJmotRxFn_B0fH1zLWQq7KgwYiF0_Y_-4X5icwZkjSbZ3Vlyl3Q5p-LOiWBKj2fueQF6voHcJlacnu4Y482ncrZUy_ZdtkDhA0ioK596W5rpxkv5v_oa4EhjnjBI6HPKRQ"><div class="absolute bottom-2 left-2 bg-[#FFF6E3]/95 border border-ink-brown/30 px-2 py-0.5 rounded-md text-[10px] font-hand font-bold text-maroon-hero shadow-sm">Freshly rolled &amp; fried 🌿</div></div>
+<!-- Handwritten caption under polaroid -->
+<div class="mt-3 flex items-center justify-between px-1"><span class="font-hand text-lg text-ink-brown font-bold">Crispy Ajwain &amp; Methi Puris</span><span class="font-mono text-[11px] font-bold text-coriander bg-coriander-light border border-coriander/30 px-2.5 py-0.5 rounded-full">Handmade in Pune 💛</span></div>
+</div>
+</div>
+<!-- Action Stack -->
+<div class="w-full max-w-sm flex flex-col gap-2.5 mt-5">
+<!-- Big WhatsApp Order Button -->
+<a class="w-full min-h-[52px] py-3.5 px-5 rounded-2xl bg-wa-green text-white font-sans font-extrabold text-base tracking-wide flex items-center justify-center gap-2.5 border-2 border-ink-brown shadow-tactile active:translate-y-1 active:shadow-tactile-pressed transition-all" href="https://wa.me/919820144521?text=Namaste%20Varsha%20ji!%20I'd%20like%20to%20order%20fresh%20puris." rel="noopener" target="_blank">
+<span class="material-symbols-outlined text-[24px]">chat</span>
+<span class="">Order Fresh on WhatsApp</span>
+</a>
+<!-- Secondary Call Action -->
+<a class="w-full min-h-[46px] py-2.5 px-4 rounded-2xl bg-sand-bg text-ink-brown font-sans font-bold text-sm flex items-center justify-center gap-2 border-2 border-ink-brown shadow-tactile-sm active:translate-y-0.5 active:shadow-none transition-all" href="tel:+919820144521">
+<span class="material-symbols-outlined text-[20px] text-maroon-hero">call</span>
+<span class="">Call Kitchen: +91 98201 44521</span>
+</a>
+<!-- Reassurance strip -->
+<div class="flex items-center justify-center gap-1.5 text-center mt-1"><span class="material-symbols-outlined text-[16px] text-coriander">check_circle</span><span class="font-sans text-xs font-semibold text-ink-muted">Delivering across Pune • Freshly Made on Order</span></div><div class="flex flex-wrap items-center justify-center gap-1.5 mt-2 pt-1"><span class="font-mono text-[10px] font-bold text-maroon-hero uppercase tracking-wide">Delivering to:</span><span class="px-2 py-0.5 rounded-full bg-sand-bg border border-ink-brown/30 font-sans text-[10px] font-semibold text-ink-brown">Kothrud</span><span class="px-2 py-0.5 rounded-full bg-sand-bg border border-ink-brown/30 font-sans text-[10px] font-semibold text-ink-brown">Aundh</span><span class="px-2 py-0.5 rounded-full bg-sand-bg border border-ink-brown/30 font-sans text-[10px] font-semibold text-ink-brown">Viman Nagar</span><span class="px-2 py-0.5 rounded-full bg-sand-bg border border-ink-brown/30 font-sans text-[10px] font-semibold text-ink-brown">Baner</span><span class="px-2 py-0.5 rounded-full bg-sand-bg border border-ink-brown/30 font-sans text-[10px] font-semibold text-ink-brown">[Area 1]</span><span class="px-2 py-0.5 rounded-full bg-sand-bg border border-ink-brown/30 font-sans text-[10px] font-semibold text-ink-brown">[Area 2]</span></div>
+</div>
+</section>
+<!-- 2. INFINITE MARQUEE STRIP -->
+<div class="w-full bg-sand-bg border-y-2 border-ink-brown py-2.5 overflow-hidden flex whitespace-nowrap">
+<div class="inline-flex gap-4 animate-marquee font-serif font-bold text-base text-maroon-hero items-center uppercase tracking-wider">
+<span class="">Crispy bites</span><span class="text-turmeric text-xl">•</span>
+<span class="italic font-normal">Happier times</span><span class="text-turmeric text-xl">•</span>
+<span class="">Snack good, feel good</span><span class="text-turmeric text-xl">•</span>
+<span class="italic font-normal">Made with love</span><span class="text-turmeric text-xl">•</span>
+<span class="">Freshly fried daily</span><span class="text-turmeric text-xl">•</span>
+<span class="">Zero reused oil</span><span class="text-turmeric text-xl">•</span>
+<!-- Duplicated for seamless marquee loop -->
+<span class="">Crispy bites</span><span class="text-turmeric text-xl">•</span>
+<span class="italic font-normal">Happier times</span><span class="text-turmeric text-xl">•</span>
+<span class="">Snack good, feel good</span><span class="text-turmeric text-xl">•</span>
+<span class="italic font-normal">Made with love</span><span class="text-turmeric text-xl">•</span>
+<span class="">Freshly fried daily</span><span class="text-turmeric text-xl">•</span>
+<span class="">Zero reused oil</span><span class="text-turmeric text-xl">•</span>
+</div>
+</div>
+<!-- 3. TACTILE STICKER STRIP (Stickers Rule) -->
+<section class="px-4 py-6 bg-cream-bg flex items-center justify-around gap-2">
+<!-- Sticker 1 -->
+<div class="bg-white border-2 border-ink-brown px-3 py-1.5 rounded-xl shadow-tactile -rotate-2 flex items-center gap-1.5">
+<span class="text-base">👩‍🍳</span>
+<span class="font-sans text-xs font-extrabold uppercase tracking-tight text-ink-brown">100% Homemade</span>
+</div>
+<!-- Sticker 2 -->
+<div class="bg-turmeric border-2 border-ink-brown px-3 py-1.5 rounded-xl shadow-tactile rotate-2 flex items-center gap-1.5">
+<span class="text-base">🛑</span>
+<span class="font-sans text-xs font-extrabold uppercase tracking-tight text-ink-brown">No Shortcuts</span>
+</div>
+<!-- Sticker 3 -->
+<div class="bg-coriander-light border-2 border-ink-brown px-3 py-1.5 rounded-xl shadow-tactile -rotate-1 flex items-center gap-1.5">
+<span class="text-base">📦</span>
+<span class="font-sans text-xs font-extrabold uppercase tracking-tight text-coriander">Fried Upon Order</span>
+</div>
+</section>
+<!-- 4. PRODUCT CAROUSEL (Horizontal Scrolling Swipeable Cards with Kraft paper look) -->
+<section class="py-7 bg-sand-bg border-y-2 border-ink-brown flex flex-col gap-4">
+<div class="px-4 flex items-end justify-between">
+<div>
+<span class="font-mono text-[11px] font-bold text-maroon-hero tracking-widest uppercase">The Menu</span>
+<h2 class="font-serif text-2xl font-bold text-maroon-dark">Our Handcrafted Puris</h2>
+</div>
+<span class="font-hand text-lg text-maroon-hero font-bold">Swipe 👉</span>
+</div>
+<!-- Swipeable Container with Snap -->
+<div class="overflow-x-auto snap-x flex gap-4 px-4 pb-4 no-scrollbar">
+<!-- Product Card 1: Classic Ajwain & Methi -->
+<article class="snap-center shrink-0 w-[290px] bg-[#FFFBF0] rounded-3xl border-2 border-ink-brown shadow-tactile p-4 flex flex-col justify-between -rotate-1"><div><div class="flex items-center justify-between mb-2.5"><span class="bg-coriander text-white text-[11px] font-extrabold px-2.5 py-0.5 rounded-full border border-ink-brown shadow-tactile-sm">★ House Special</span><span class="font-mono text-xs font-bold text-ink-muted">01 / AJWAIN</span></div><div class="w-full aspect-[4/3] rounded-2xl overflow-hidden relative border-2 border-ink-brown mb-3"><img alt="Classic Ajwain &amp; Methi puris in terracotta plate" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1UwCQfy4qOKrtma2DrLaX8DxfbitYxyoWGhRT0UMKrgJhlMcHZRiF_9mc9KtG03APQ3IlklVBlZ55bSrxtthNQuBMVlTXncZ5FUzR28U1_jd_JYIms_c7_SUgGeL9Du-tgfaar29Rq6rwbMyKwR_kHN-hUlJN6C5NUjtPdmM7DXn8xeEKG58V-gQ8orQlBvUPQTErdP1BXb6VJglyN4b393WT35moqI3eyoMgwIwBUZ-SSwK33IgSXX-OU"><span class="absolute top-2 right-2 bg-turmeric text-ink-brown font-hand font-bold text-xs px-2 py-0.5 rounded-md border border-ink-brown shadow-tactile-sm">Small Batch</span></div><h3 class="font-serif text-lg font-bold text-maroon-hero leading-snug">Classic Ajwain &amp; Methi</h3><p class="font-sans text-xs text-ink-muted mt-1 leading-relaxed">Crispy, flaky layers kneaded with fresh roasted ajwain seeds &amp; fragrant methi. Perfect with evening chai.</p><div class="mt-3 pt-2.5 border-t border-dashed border-ink-brown/20 flex flex-col gap-1.5"><div class="flex items-center justify-between"><span class="font-sans text-[11px] font-bold text-ink-brown uppercase tracking-wider">Price:</span><span class="font-sans text-xs font-extrabold text-maroon-hero bg-sand-bg px-2 py-0.5 rounded-full border border-ink-brown/30">Ask on WhatsApp</span></div><p class="font-sans text-[11px] text-ink-muted">Pack sizes: 250g • 500g • 1 kg (₹ ___ / pack • Ask on WhatsApp)</p></div></div><a class="mt-4 w-full py-2.5 px-3 rounded-xl bg-wa-green text-white font-sans text-xs font-bold flex items-center justify-center gap-1.5 border-2 border-ink-brown shadow-tactile-sm active:translate-y-0.5 active:shadow-none transition-all" href="https://wa.me/919820144521?text=Namaskar%20Varsha%20ji,%20I'm%20inquiring%20about%20Classic%20Ajwain%20%26%20Methi%20Puris%20price%20and%20order%20for%20Pune!" rel="noopener" target="_blank"><span class="material-symbols-outlined text-[18px]">chat</span><span class="">Price on WhatsApp</span></a></article>
+<!-- Product Card 2: Spicy Masala Tikha Puri -->
+<article class="snap-center shrink-0 w-[290px] bg-[#FFFBF0] rounded-3xl border-2 border-ink-brown shadow-tactile p-4 flex flex-col justify-between rotate-1"><div><div class="flex items-center justify-between mb-2.5"><span class="bg-turmeric text-ink-brown text-[11px] font-extrabold px-2.5 py-0.5 rounded-full border border-ink-brown shadow-tactile-sm">🌶 Spicy Zing</span><span class="font-mono text-xs font-bold text-ink-muted">02 / TIKHA</span></div><div class="w-full aspect-[4/3] rounded-2xl overflow-hidden relative border-2 border-ink-brown mb-3"><img alt="Spicy Masala Tikha Puris in brass bowl" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1UBrL-XADli0bErpx66PNDyeqFBlvHuwREslR-Sf3_Io8B8DJofuxYgDMfseddTw9J7GdqlcYDjPfPBUhYpOeEWYRfzdcyx1JpGl7FgcgNNbwWAWug69EqKVRy-F8rPFJbNBuF8itRDWnv1RZZ6-weh6xbYEAyXjqVEom6MtaCbuYvZaJmWlv92ayuZ5UPtYPzqp-Kg-RH2YIQVaKAl2B2IZQ-eJoBM1XWnYcbXpoJQ-qTTT2-IM6poFw"><span class="absolute top-2 right-2 bg-coriander-light text-coriander font-hand font-bold text-xs px-2 py-0.5 rounded-md border border-ink-brown/30 shadow-tactile-sm">Crispy Kick 🔥</span></div><h3 class="font-serif text-lg font-bold text-maroon-hero leading-snug">Spicy Masala Tikha Puri</h3><p class="font-sans text-xs text-ink-muted mt-1 leading-relaxed">Zesty puris tossed in homemade Maharashtrian spice rub, Kashmiri chilli &amp; amchur.</p><div class="mt-3 pt-2.5 border-t border-dashed border-ink-brown/20 flex flex-col gap-1.5"><div class="flex items-center justify-between"><span class="font-sans text-[11px] font-bold text-ink-brown uppercase tracking-wider">Price:</span><span class="font-sans text-xs font-extrabold text-maroon-hero bg-sand-bg px-2 py-0.5 rounded-full border border-ink-brown/30">Ask on WhatsApp</span></div><p class="font-sans text-[11px] text-ink-muted">Pack sizes: 250g • 500g • 1 kg (₹ ___ / pack • Ask on WhatsApp)</p></div></div><a class="mt-4 w-full py-2.5 px-3 rounded-xl bg-wa-green text-white font-sans text-xs font-bold flex items-center justify-center gap-1.5 border-2 border-ink-brown shadow-tactile-sm active:translate-y-0.5 active:shadow-none transition-all" href="https://wa.me/919820144521?text=Namaskar%20Varsha%20ji,%20I'm%20inquiring%20about%20Spicy%20Masala%20Tikha%20Puris%20price%20and%20order%20for%20Pune!" rel="noopener" target="_blank"><span class="material-symbols-outlined text-[18px]">chat</span><span class="">Price on WhatsApp</span></a></article>
+<!-- Product Card 3: Festive Combo Hamper Box -->
+<article class="snap-center shrink-0 w-[290px] bg-[#FFFBF0] rounded-3xl border-2 border-ink-brown shadow-tactile p-4 flex flex-col justify-between -rotate-1"><div><div class="flex items-center justify-between mb-2.5"><span class="bg-maroon-hero text-white text-[11px] font-extrabold px-2.5 py-0.5 rounded-full border border-ink-brown shadow-tactile-sm">🎁 Gift Box</span><span class="font-mono text-xs font-bold text-ink-muted">03 / COMBO</span></div><div class="w-full aspect-[4/3] rounded-2xl bg-[#F8EFE0] border-2 border-dashed border-maroon-hero/35 flex flex-col items-center justify-center p-3 text-center mb-3"><div class="w-9 h-9 rounded-full bg-sand-bg border border-ink-brown/30 flex items-center justify-center text-maroon-hero mb-1"><span class="material-symbols-outlined text-[20px]">redeem</span></div><p class="font-serif italic font-bold text-xs text-maroon-hero leading-tight">PHOTO: puris on a steel plate in gift packaging</p><span class="mt-1 font-mono text-[9px] text-ink-muted bg-white/80 px-1.5 py-0.5 rounded-full border border-ink-brown/15">Packaged Fresh in Pune</span></div><h3 class="font-serif text-lg font-bold text-maroon-hero leading-snug">Festive Combo Hamper Box</h3><p class="font-sans text-xs text-ink-muted mt-1 leading-relaxed">Mix assortment of Ajwain &amp; Tikha puris packed in an artisanal box for friends &amp; family.</p><div class="mt-3 pt-2.5 border-t border-dashed border-ink-brown/20 flex flex-col gap-1.5"><div class="flex items-center justify-between"><span class="font-sans text-[11px] font-bold text-ink-brown uppercase tracking-wider">Price:</span><span class="font-sans text-xs font-extrabold text-maroon-hero bg-sand-bg px-2 py-0.5 rounded-full border border-ink-brown/30">Ask on WhatsApp</span></div><p class="font-sans text-[11px] text-ink-muted">Custom boxes (₹ ___ / pack • Ask on WhatsApp)</p></div></div><a class="mt-4 w-full py-2.5 px-3 rounded-xl bg-wa-green text-white font-sans text-xs font-bold flex items-center justify-center gap-1.5 border-2 border-ink-brown shadow-tactile-sm active:translate-y-0.5 active:shadow-none transition-all" href="https://wa.me/919820144521?text=Namaskar%20Varsha%20ji,%20I'm%20inquiring%20about%20Festive%20Combo%20Box%20orders%20in%20Pune!" rel="noopener" target="_blank"><span class="material-symbols-outlined text-[18px]">chat</span><span class="">Price on WhatsApp</span></a></article>
+</div>
+</section>
+<!-- 5. HOW ORDERING WORKS (3 Steps + Mock WhatsApp Bubble) -->
+<section class="px-4 py-8 bg-cream-bg flex flex-col gap-5">
+<div class="text-center">
+<span class="font-mono text-xs font-bold text-coriander uppercase tracking-widest">Simple &amp; Personal</span>
+<h2 class="font-serif text-2xl font-bold text-maroon-hero mt-1">How Ordering Works</h2>
+<div class="w-12 h-1 bg-turmeric rounded-full mx-auto mt-2 border border-ink-brown"></div>
+</div>
+<!-- 3 Steps -->
+<div class="grid grid-cols-1 gap-3">
+<!-- Step 1 -->
+<div class="bg-white p-3.5 rounded-2xl border-2 border-ink-brown shadow-tactile-sm flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-turmeric border-2 border-ink-brown flex items-center justify-center font-serif font-black text-lg text-ink-brown shrink-0">
+            1
+          </div>
+<div>
+<h4 class="font-sans font-bold text-sm text-maroon-hero">Choose Pack &amp; Spice Level</h4>
+<p class="font-sans text-xs text-ink-muted">Classic Ajwain, Spicy Tikha, or Mix Combo in 250g, 500g, or 1kg.</p>
+</div>
+</div>
+<!-- Step 2 -->
+<div class="bg-white p-3.5 rounded-2xl border-2 border-ink-brown shadow-tactile-sm flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-wa-green text-white border-2 border-ink-brown flex items-center justify-center font-serif font-black text-lg shrink-0">
+            2
+          </div>
+<div>
+<h4 class="font-sans font-bold text-sm text-maroon-hero">Tap to Chat on WhatsApp</h4>
+<p class="font-sans text-xs text-ink-muted">Send your address &amp; custom note directly to Varsha ji.</p>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="bg-white p-3.5 rounded-2xl border-2 border-ink-brown shadow-tactile-sm flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-sand-bg border-2 border-ink-brown flex items-center justify-center font-serif font-black text-lg text-maroon-hero shrink-0">
+            3
+          </div>
+<div>
+<h4 class="font-sans font-bold text-sm text-maroon-hero">Freshly Fried &amp; Delivered</h4>
+<p class="font-sans text-xs text-ink-muted">Rolled, fried, vacuum-packed and delivered warm across Pune.</p>
+</div>
+</div>
+</div>
+<!-- Mock WhatsApp Chat Bubble Preview -->
+<div class="bg-[#EFEAE2] p-4 rounded-3xl border-2 border-ink-brown shadow-tactile relative mt-2">
+<div class="flex items-center justify-between pb-2 mb-2 border-b border-ink-brown/15">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-wa-green"></span>
+<span class="font-sans text-xs font-bold text-ink-brown">WhatsApp Pre-filled Order Preview</span>
+</div>
+<span class="font-mono text-[10px] text-ink-muted">varsha@vaaafoods</span>
+</div>
+<!-- The WhatsApp Sent Message Bubble -->
+<div class="bg-[#D9FDD3] rounded-2xl rounded-tr-none p-3 border border-[#B2D8A7] shadow-sm ml-6 flex flex-col gap-1.5">
+<p class="font-sans text-xs text-[#111B21] leading-relaxed">“Namaste Varsha ji! I'd like to order <strong>500g Classic Ajwain Puri</strong> to <strong>Kothrud, Pune</strong>. Please confirm pricing and delivery timing 🙏”</p>
+<div class="flex items-center justify-end gap-1 text-[10px] text-[#667781]">
+<span class="">11:42 AM</span>
+<span class="material-symbols-outlined text-[14px] text-[#53BDEB]">done_all</span>
+</div>
+</div>
+<a class="mt-3 w-full py-2.5 rounded-xl bg-wa-green text-white font-sans text-xs font-bold flex items-center justify-center gap-2 border-2 border-ink-brown shadow-tactile-sm" href="https://wa.me/919820144521?text=Namaste%20Varsha%20ji!%20I'd%20like%20to%20order%20fresh%20puris%20to%20Pune." rel="noopener" target="_blank">
+<span class="material-symbols-outlined text-[18px]">send</span>
+<span class="">Send This Order on WhatsApp Now</span>
+</a>
+</div>
+</section>
+<!-- 6. BENTO GRID: WHY VAAA FOODS -->
+<section class="px-4 py-8 bg-sand-bg border-y-2 border-ink-brown flex flex-col gap-4">
+<div class="text-center">
+<span class="font-mono text-xs font-bold text-maroon-hero uppercase tracking-widest">Uncompromising Standards</span>
+<h2 class="font-serif text-2xl font-bold text-maroon-dark mt-1">Why Families Love Vaaa Foods</h2>
+<div class="w-12 h-1 bg-turmeric rounded-full mx-auto mt-2 border border-ink-brown"></div>
+</div>
+<!-- Bento Grid (Multi-sized cards) -->
+<div class="grid grid-cols-2 gap-3 mt-1"><div class="bg-cream-bg p-4 rounded-3xl border-2 border-ink-brown shadow-tactile flex flex-col justify-between -rotate-1"><div class="w-8 h-8 rounded-full bg-turmeric border border-ink-brown flex items-center justify-center text-maroon-hero text-sm font-bold">🍳</div><div class="mt-3"><span class="font-serif text-2xl font-extrabold text-maroon-hero leading-tight">Small Batches</span><h4 class="font-sans font-bold text-xs text-ink-brown mt-1">Fried with Patience</h4><p class="font-sans text-[11px] text-ink-muted mt-0.5">Prepared in limited home quantities so every puri is evenly crispy.</p></div></div><div class="bg-white p-4 rounded-3xl border-2 border-ink-brown shadow-tactile flex flex-col justify-between rotate-1"><div class="w-8 h-8 rounded-full bg-coriander-light border border-ink-brown flex items-center justify-center text-coriander text-sm font-bold">💧</div><div class="mt-3"><span class="font-serif text-xl font-extrabold text-coriander leading-tight">Zero Reused Oil</span><h4 class="font-sans font-bold text-xs text-ink-brown mt-1">Single Batch Only</h4><p class="font-sans text-[11px] text-ink-muted mt-0.5">Clean single-use peanut &amp; sunflower oil. Never recycled.</p></div></div><div class="col-span-2 bg-[#FFFDF7] p-5 rounded-3xl border-2 border-ink-brown shadow-tactile flex flex-col gap-3"><div class="flex flex-wrap items-center justify-between gap-2 pb-1 border-b border-dashed border-ink-brown/15"><div class="flex items-center gap-2"><div class="w-9 h-9 rounded-xl bg-turmeric border-2 border-ink-brown flex items-center justify-center text-maroon-hero shrink-0"><span class="material-symbols-outlined text-[20px]">skillet</span></div><span class="font-sans text-xs font-extrabold uppercase tracking-wider text-maroon-hero">Fresh When You Order</span></div><span class="font-mono text-[10px] font-extrabold bg-coriander-light text-coriander px-2.5 py-1 rounded-full border border-coriander/30 shrink-0">No Supermarket Storage</span></div><div><h3 class="font-serif text-lg font-bold text-maroon-dark leading-snug">Dough rolled &amp; crisp-fried only after your ping.</h3><p class="font-sans text-xs text-ink-muted leading-relaxed mt-1.5">We do not maintain old stock. Dough is rolled, spiced, and fried only after your WhatsApp confirmation so you receive fresh, fragrant namkeen.</p></div></div><div class="col-span-2 bg-cream-bg p-4 rounded-3xl border-2 border-ink-brown shadow-tactile-sm flex items-center gap-3"><div class="w-12 h-12 rounded-2xl bg-sand-bg border-2 border-ink-brown flex items-center justify-center text-maroon-hero shrink-0"><span class="material-symbols-outlined text-[24px]">home</span></div><div><h4 class="font-sans font-bold text-sm text-maroon-hero">Made at Home in Pune</h4><p class="font-sans text-xs text-ink-muted">Authentic, spotless home kitchen in Pune using traditional care &amp; clean ingredients.</p></div></div></div>
+</section>
+<!-- 7. OCCASIONS BAND (Full-width Dark Maroon #4E0A15) -->
+<section class="bg-maroon-dark text-[#FFF6E3] px-4 py-8 border-b-2 border-ink-brown flex flex-col gap-4"><div class="text-center"><span class="font-hand text-xl text-turmeric font-bold">Good Times, Greater Snacking</span><h2 class="font-serif text-2xl font-bold text-white mt-0.5">Perfect for Every Occasion</h2><p class="font-sans text-xs text-[#FFF6E3]/70 mt-1 max-w-xs mx-auto">From 4 PM tea-time to grand family celebrations.</p></div><div class="grid grid-cols-2 gap-3 mt-1"><div class="bg-white rounded-2xl border-2 border-ink-brown p-3.5 shadow-tactile flex flex-col justify-between -rotate-1"><div class="text-2xl mb-2">🪔</div><div><h3 class="font-serif font-bold text-[15px] text-maroon-hero leading-snug">Festivals &amp; Pujas</h3><p class="font-sans text-[11px] text-ink-muted mt-1 leading-relaxed">Diwali, Ganesh Utsav, and Holi traditional snack platters.</p></div></div><div class="bg-white rounded-2xl border-2 border-ink-brown p-3.5 shadow-tactile flex flex-col justify-between rotate-1"><div class="text-2xl mb-2">🎁</div><div><h3 class="font-serif font-bold text-[15px] text-maroon-hero leading-snug">Weddings &amp; Gifts</h3><p class="font-sans text-[11px] text-ink-muted mt-1 leading-relaxed">Customized savory gift hampers with personalized blessing tags.</p></div></div><div class="bg-white rounded-2xl border-2 border-ink-brown p-3.5 shadow-tactile flex flex-col justify-between rotate-1"><div class="text-2xl mb-2">☕</div><div><h3 class="font-serif font-bold text-[15px] text-maroon-hero leading-snug">Chai &amp; Office Snack</h3><p class="font-sans text-[11px] text-ink-muted mt-1 leading-relaxed">The quintessential 4 PM tea-time partner for your workstation.</p></div></div><div class="bg-white rounded-2xl border-2 border-ink-brown p-3.5 shadow-tactile flex flex-col justify-between -rotate-1"><div class="text-2xl mb-2">🎉</div><div><h3 class="font-serif font-bold text-[15px] text-maroon-hero leading-snug">Bulk &amp; Parties</h3><p class="font-sans text-[11px] text-ink-muted mt-1 leading-relaxed">Special discounted pricing slabs for family &amp; society events.</p></div></div></div><div class="bg-black/30 border border-white/15 rounded-2xl p-3 text-center mt-2"><p class="font-sans text-xs text-white/90">Need customized gift boxes or festive potlis? <br><a class="underline font-bold text-turmeric" href="https://wa.me/919820144521?text=Namaste%20Varsha%20ji,%20I'm%20inquiring%20about%20gift%20boxes%20in%20Pune." rel="noopener" target="_blank">Chat with us for festive bulk rates →</a></p></div></section>
+<!-- 8. MEET VARSHA (Editorial Story + Photo Placeholder) -->
+<section class="px-4 py-8 bg-cream-bg flex flex-col items-center"><div class="w-full bg-[#FFFBF0] rounded-3xl border-2 border-ink-brown shadow-tactile p-5 relative overflow-hidden"><div class="flex items-center justify-between mb-3"><span class="bg-turmeric text-ink-brown font-extrabold text-[11px] uppercase tracking-wider px-3 py-1 rounded-xl border-2 border-ink-brown shadow-tactile-sm -rotate-1 flex items-center gap-1">✨ Newly launched</span><span class="font-mono text-xs font-bold text-ink-muted">Pune Home Kitchen</span></div><div class="w-28 h-28 mx-auto rounded-full overflow-hidden border-4 border-turmeric shadow-tactile my-3 bg-cream-bg">
+  <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBkc6SEvo33HxfavuhAS1LHr6h4P6G0yDy9cK5YZWMWmYbYKCHbBeDhat89kbaQcuJmaEuNdzyF0pnhjvLri5dWxsuqNkDHNFnurNUm41MyplXcLAOUKz4lZEy_4tJf5xbEwXUs9PDrYj5F7CXWCiIYWa2G8EnnvQq9bQSwh3bCsXYWx02ak5o4dRTIL7mw4dnU5ryrCNdX1C__JCge_AQ1JIdmq0dZ69gBIq_UYFI08c7MlGdXXfgmUobWZrjZ2Yre3A" alt="Varsha Ukhalkar - Founder of Vaaa Foods" class="w-full h-full object-cover">
+</div><div class="relative"><span class="font-serif text-5xl text-turmeric/80 leading-none absolute -top-4 -left-1 select-none">“</span><p class="font-serif italic text-base text-maroon-dark pt-3 leading-relaxed relative z-10">Namaskar! We have just started Vaaa Foods from our home kitchen in Pune. Every batch is made in small quantities, with care and [family recipe passed down / traditional Maharashtrian spices]. We are excited to share our crisp, golden puris with your family for your 4 PM tea or festive get-togethers.</p></div><div class="mt-4 pt-3 border-t-2 border-dashed border-ink-brown/15 flex items-center justify-between"><div><p class="font-hand text-2xl font-bold text-maroon-hero -rotate-2">Varsha Ukhalkar</p><p class="font-sans text-[11px] font-bold text-ink-muted uppercase tracking-wider">Founder &amp; Mother • Pune, Maharashtra</p></div><div class="w-11 h-11 rounded-full bg-turmeric border-2 border-ink-brown flex items-center justify-center text-ink-brown font-black shadow-tactile-sm">💛</div></div></div></section>
+<!-- 9. REVIEWS: WHATSAPP CHAT BUBBLE STYLE -->
+<section class="px-4 py-8 bg-sand-bg border-y-2 border-ink-brown flex flex-col gap-4"><div class="text-center"><span class="font-mono text-xs font-bold text-coriander uppercase tracking-widest">Community &amp; Early Tasters</span><h2 class="font-serif text-2xl font-bold text-maroon-dark mt-1">Be Our First Taster in Pune</h2><div class="w-12 h-1 bg-turmeric rounded-full mx-auto mt-2 border border-ink-brown"></div></div><div class="flex flex-col gap-3.5"><div class="bg-white p-4 rounded-3xl border-2 border-ink-brown shadow-tactile flex flex-col gap-2.5 -rotate-1"><div class="flex items-center justify-between"><div class="flex items-center gap-1.5"><span class="text-base">💌</span><span class="font-sans text-xs font-extrabold text-maroon-hero">Taste &amp; Give Honest Feedback</span></div><span class="bg-turmeric text-ink-brown text-[10px] font-extrabold px-2 py-0.5 rounded-full border border-ink-brown/30">Early Bird Batch</span></div><p class="font-sans text-xs text-ink-brown leading-relaxed">As a newly launched mother &amp; daughter kitchen in Pune, we would be honoured to have you try our very first batches. Taste a fresh pack with your cutting chai, let us know what you love, and help us refine every recipe!</p><div class="pt-2 border-t border-dashed border-ink-brown/20 flex items-center justify-between"><span class="font-hand text-base text-maroon-hero font-bold">Try a box! 💛</span><a class="py-1.5 px-3 rounded-xl bg-wa-green text-white font-sans text-xs font-bold flex items-center gap-1 border border-ink-brown shadow-tactile-sm" href="https://wa.me/919820144521?text=Namaskar%20Varsha%20ji,%20I'd%20love%20to%20be%20an%20early%20taster%20in%20Pune!" rel="noopener" target="_blank"><span class="material-symbols-outlined text-[16px]">chat</span><span class="">Connect on WhatsApp</span></a></div></div><div class="bg-cream-bg/70 p-4 rounded-3xl border-2 border-dashed border-maroon-hero/35 flex flex-col items-center justify-center text-center py-6"><div class="w-10 h-10 rounded-full bg-sand-bg border border-ink-brown/30 flex items-center justify-center text-maroon-hero mb-2"><span class="material-symbols-outlined text-[22px]">reviews</span></div><h4 class="font-serif font-bold text-sm text-maroon-hero">Customer Reviews Space</h4><p class="font-sans text-xs text-ink-muted max-w-xs mt-1">Real customer reviews will appear here as you taste &amp; share!</p></div></div></section>
+<!-- 10. FAQ ACCORDION -->
+<section class="px-4 py-8 bg-cream-bg flex flex-col gap-4">
+<div class="text-center">
+<span class="font-mono text-xs font-bold text-maroon-hero uppercase tracking-widest">Questions &amp; Answers</span>
+<h2 class="font-serif text-2xl font-bold text-maroon-dark mt-1">Frequently Asked</h2>
+<div class="w-12 h-1 bg-turmeric rounded-full mx-auto mt-2 border border-ink-brown"></div>
+</div>
+<div class="flex flex-col gap-2.5">
+<!-- FAQ 1 -->
+<details class="group bg-white rounded-2xl border-2 border-ink-brown p-3.5 cursor-pointer shadow-tactile-sm transition-all open:bg-sand-bg/40">
+<summary class="flex items-center justify-between font-sans font-bold text-xs text-maroon-hero list-none">
+<span class="">How long do the puris stay crisp?</span>
+<span class="material-symbols-outlined text-base transition-transform duration-200 group-open:rotate-180 text-ink-brown">expand_more</span>
+</summary>
+<p class="font-sans text-xs text-ink-muted mt-2 pt-2 border-t border-dashed border-ink-brown/20 leading-relaxed">
+            Up to 45 days in our unopened zip-lock foil pouches. Once opened, simply press the airtight zip shut after enjoying.
+          </p>
+</details>
+<!-- FAQ 2 -->
+<details class="group bg-white rounded-2xl border-2 border-ink-brown p-3.5 cursor-pointer shadow-tactile-sm transition-all open:bg-sand-bg/40">
+<summary class="flex items-center justify-between font-sans font-bold text-xs text-maroon-hero list-none">
+<span class="">What cooking oil do you use?</span>
+<span class="material-symbols-outlined text-base transition-transform duration-200 group-open:rotate-180 text-ink-brown">expand_more</span>
+</summary>
+<p class="font-sans text-xs text-ink-muted mt-2 pt-2 border-t border-dashed border-ink-brown/20 leading-relaxed">
+            We use only 100% fresh, single-use peanut &amp; sunflower oil. We never reuse oil or use palm oil or artificial preservatives.
+          </p>
+</details>
+<!-- FAQ 3 -->
+<details class="group bg-white rounded-2xl border-2 border-ink-brown p-3.5 cursor-pointer shadow-tactile-sm transition-all open:bg-sand-bg/40"><summary class="flex items-center justify-between font-sans font-bold text-xs text-maroon-hero list-none"><span class="">Where do you deliver across Pune?</span><span class="material-symbols-outlined text-base transition-transform duration-200 group-open:rotate-180 text-ink-brown">expand_more</span></summary><p class="font-sans text-xs text-ink-muted mt-2 pt-2 border-t border-dashed border-ink-brown/20 leading-relaxed">We deliver across Pune neighbourhoods including Kothrud, Aundh, Viman Nagar, Baner, and surrounding areas. Delivery is coordinated directly over WhatsApp so your puris reach you crisp and fresh.</p></details>
+<!-- FAQ 4 -->
+<details class="group bg-white rounded-2xl border-2 border-ink-brown p-3.5 cursor-pointer shadow-tactile-sm transition-all open:bg-sand-bg/40">
+<summary class="flex items-center justify-between font-sans font-bold text-xs text-maroon-hero list-none">
+<span class="">Can I customize gift boxes for weddings?</span>
+<span class="material-symbols-outlined text-base transition-transform duration-200 group-open:rotate-180 text-ink-brown">expand_more</span>
+</summary>
+<p class="font-sans text-xs text-ink-muted mt-2 pt-2 border-t border-dashed border-ink-brown/20 leading-relaxed">
+            Yes! We regularly fulfill bulk orders with custom labels, festive ribbons, and assorted namkeen platters. Message us on WhatsApp for sample boxes.
+          </p>
+</details>
+</div>
+</section>
+<!-- 11. FINAL BOLD CTA BAND ("Hungry? Let's chat.") -->
+<section class="px-4 py-8 bg-sand-bg border-y-2 border-ink-brown flex flex-col items-center">
+<div class="w-full bg-cream-bg rounded-3xl border-2 border-ink-brown shadow-tactile-lg p-5 flex flex-col items-center text-center">
+<div class="w-12 h-12 rounded-2xl bg-turmeric border-2 border-ink-brown flex items-center justify-center text-maroon-hero text-2xl shadow-tactile-sm mb-3">
+          🫖
+        </div>
+<h2 class="font-serif text-2xl font-black text-maroon-hero">Hungry? Let's chat.</h2>
+<p class="font-sans text-xs text-ink-muted mt-1 max-w-xs">
+          Your warm, crispy batch is just one WhatsApp message away.
+        </p>
+<!-- Big WhatsApp Button -->
+<a class="mt-4 w-full min-h-[50px] py-3.5 px-5 rounded-2xl bg-wa-green text-white font-sans font-extrabold text-base flex items-center justify-center gap-2 border-2 border-ink-brown shadow-tactile active:translate-y-1 active:shadow-tactile-pressed transition-all" href="https://wa.me/919820144521?text=Hi%20Varsha%20ji,%20I'm%20ready%20to%20order%20fresh%20puris!" rel="noopener" target="_blank">
+<span class="material-symbols-outlined text-[24px]">chat</span>
+<span class="">Order Directly on WhatsApp</span>
+</a>
+<div class="flex items-center gap-2 mt-3 font-mono text-xs text-ink-muted"><span class="">📞 +91 [phone number]</span><span class="">•</span><span class="">📍 Pune, Maharashtra</span></div>
+</div>
+</section>
+<!-- 12. FOOTER (Exact brand logo preserved) -->
+<footer class="bg-maroon-dark text-cream-bg px-4 pt-8 pb-10 flex flex-col items-center text-center gap-4"><img alt="Vaaa Foods Brand Logo" class="h-12 w-auto object-contain brightness-110 drop-shadow" src="https://lh3.googleusercontent.com/aida/AEtjO1XnXZyfC90qosrW1fKsE8LrEjUfANBDSuBcq7-8LCfezyAtNVrOcZAqrLd8PgnEe7z2wXvP0T6fYTFQgqQ3lttXoenoWgyYBr3rGMSnTr11ThXFYetssxYFdGrQhOPP0NCImx_fz7y5jZntK4J0r561Pe49u7z3P3ZcGnV-rM0BqTBsoTZjNea84MfpKw7VcprtKfAyphPxq94QAGpVQKCCQ1fsv6RR0YMFgK542n47mk4z2L-qTx9WMD8"><div><h3 class="font-serif text-xl font-bold text-white">Vaaa Foods</h3><p class="font-sans text-xs text-cream-bg/70 italic mt-0.5">Let's Snack Together! • Snack Good, Feel Good</p><p class="font-sans text-[11px] text-turmeric mt-1 font-semibold">Varsha Ukhalkar • +91 [phone number] • Pune, Maharashtra</p><p class="font-sans text-[11px] text-cream-bg/70 mt-0.5">Delivering across Pune [neighbourhoods to be finalized]</p></div><div class="px-3 py-1 rounded-full bg-black/30 border border-white/20 text-[11px] font-mono text-turmeric flex items-center gap-1.5"><span class="material-symbols-outlined text-[15px]">verified_user</span><span class="">FSSAI Lic. No. [to be added]</span></div><div class="w-full h-px bg-white/15 my-1"></div><p class="font-sans text-[11px] text-cream-bg/60">© 2025 Vaaa Foods. All rights reserved. Handcrafted freshly in Pune with motherly love.</p></footer>
+</main>
+<!-- STICKY MOBILE BOTTOM BAR -->
+<nav class="fixed bottom-0 w-full z-50 pb-safe bg-cream-bg/95 backdrop-blur-md border-t-2 border-ink-brown shadow-[0_-4px_16px_rgba(43,24,16,0.08)]">
+<div class="flex items-center gap-2.5 px-3 py-2">
+<!-- Call Button -->
+<a class="h-12 w-12 shrink-0 flex items-center justify-center rounded-2xl bg-sand-bg text-maroon-hero border-2 border-ink-brown shadow-tactile-sm active:translate-y-0.5 active:shadow-none transition-all" href="tel:+919820144521">
+<span class="material-symbols-outlined text-[24px]">call</span>
+</a>
+<!-- Large WhatsApp CTA Button (min 48px height) -->
+<a class="flex-1 h-12 min-h-[48px] flex items-center justify-center gap-2 rounded-2xl bg-wa-green text-white font-sans font-black text-sm tracking-wide border-2 border-ink-brown shadow-tactile active:translate-y-0.5 active:shadow-tactile-pressed transition-all" href="https://wa.me/919820144521?text=Namaste%20Varsha%20ji!%20I%20would%20like%20to%20order%20fresh%20puris." rel="noopener" target="_blank">
+<span class="material-symbols-outlined text-[22px]">chat</span>
+<span class="">Order on WhatsApp</span>
+</a>
+</div>
+</nav>
+<script>
+    // Smooth single-accordion toggle
+    document.querySelectorAll('details').forEach((el) => {
+      el.addEventListener('toggle', () => {
+        if (el.open) {
+          document.querySelectorAll('details').forEach((other) => {
+            if (other !== el) other.removeAttribute('open');
+          });
+        }
+      });
+    });
+  </script>
+
+
+
+
+</body></html>
