@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import { siteConfig } from "@/content/site";
 import { Phone } from "lucide-react";
 
@@ -8,8 +9,15 @@ export function Header() {
       <div className="max-w-4xl mx-auto h-16 px-4 flex items-center justify-between">
         {/* Brand Logo & Name */}
         <div className="flex items-center gap-2.5 min-w-0">
-          <div className="relative w-9 h-9 shrink-0 flex items-center justify-center rounded-lg bg-turmeric border border-ink overflow-hidden">
-            <span className="font-serif font-bold text-maroon text-base">VF</span>
+          <div className="relative w-10 h-10 shrink-0 rounded-full overflow-hidden border border-ink/30 bg-cream shadow-sm flex items-center justify-center">
+            <Image
+              src="/images/logo.png"
+              alt="Vaaa Foods Brand Logo"
+              width={40}
+              height={40}
+              className="w-full h-full object-contain"
+              priority
+            />
           </div>
           <div className="flex flex-col truncate">
             <span className="font-serif font-bold text-lg text-maroon leading-tight tracking-tight">
