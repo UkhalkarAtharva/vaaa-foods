@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { Product } from "@/content/site";
 import { buildWhatsAppLink } from "@/lib/whatsapp";
 import { MessageCircle } from "lucide-react";
@@ -42,17 +43,14 @@ export function ProductCard({ product, index }: ProductCardProps) {
           </span>
         </div>
 
-        {/* Product Image / Placeholder */}
-        <div className="w-full aspect-[4/3] rounded-2xl overflow-hidden relative border-2 border-ink mb-3 bg-[#F8EFE0] flex flex-col items-center justify-center p-3 text-center">
-          <div className="w-9 h-9 rounded-full bg-sand border border-ink/30 flex items-center justify-center text-maroon mb-1">
-            <span className="text-lg">🥟</span>
-          </div>
-          <p className="font-serif italic font-bold text-xs text-maroon leading-tight">
-            {product.name}
-          </p>
-          <span className="mt-1 font-mono text-[9px] text-ink-muted bg-white/80 px-2 py-0.5 rounded-full border border-ink/15">
-            {product.imagePath.replace("/images/", "")} (Placeholder)
-          </span>
+        <div className="w-full aspect-[4/3] rounded-2xl overflow-hidden relative border-2 border-ink mb-3 bg-[#F8EFE0]">
+          <Image
+            src={product.imagePath}
+            alt={product.imageAlt}
+            fill
+            sizes="(max-width: 640px) 253px, 278px"
+            className="object-cover"
+          />
 
           <span className="absolute top-2 right-2 bg-turmeric text-ink font-hand font-bold text-xs px-2 py-0.5 rounded-md border border-ink shadow-tactile-sm">
             Small Batch

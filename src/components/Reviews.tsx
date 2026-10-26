@@ -34,7 +34,7 @@ export function Reviews() {
               </span>
             </div>
             <p className="font-sans text-xs text-ink leading-relaxed">
-              As a newly launched mother &amp; daughter kitchen in Pune, we would be honoured to have you try our very first batches. Taste a fresh pack with your cutting chai, let us know what you love, and help us refine every recipe!
+              As a newly launched home kitchen in Pune, we would be honoured to have you try our very first batches. Taste a fresh pack with your cutting chai, let us know what you love, and help us refine every recipe!
             </p>
             <div className="pt-2 border-t border-dashed border-ink/20 flex items-center justify-between">
               <span className="font-hand text-base text-maroon font-bold">

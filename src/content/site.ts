@@ -84,65 +84,35 @@ export const siteConfig = {
 
 export const founder = {
   name: "Varsha Ukhalkar",
-  title: "Founder & Mother",
+  title: "Founder & Home Cook",
   location: "Pune, Maharashtra",
-  imagePath: "/images/varsha-portrait.webp",
+  imagePath: "/images/varsha-photo.png",
   imageAlt: "Varsha Ukhalkar — Founder of Vaaa Foods, Pune",
   // TODO_ABOUT_QUOTE: replace with Varsha's own words
   quote:
     "Namaskar! We have just started Vaaa Foods from our home kitchen in Pune. Every batch is made in small quantities, with care and love. We are excited to share our crisp, golden puris with your family for your 4 PM tea or festive get-togethers.",
-  hasPhoto: false, // flip to true when real portrait is added
+  hasPhoto: true,
 } as const;
 
 // ---- Products ----
 
 export const products: Product[] = [
   {
-    id: "ajwain-methi",
-    name: "Classic Ajwain & Methi",
-    serial: "01 / AJWAIN",
-    description:
-      "Crispy, flaky layers kneaded with fresh roasted ajwain seeds & fragrant methi. Perfect with evening chai.",
-    badge: "★ House Special",
-    badgeVariant: "coriander",
-    imagePath: "/images/product-ajwain.webp",
-    imageAlt: "Classic Ajwain & Methi puris on a plate",
-    packSizes: [
-      { size: "250g", price: "TODO_PRICE_250G" },
-      { size: "500g", price: "TODO_PRICE_500G" },
-      { size: "1 kg", price: "TODO_PRICE_1KG" },
-    ],
-    hasPhoto: false,
-  },
-  {
-    id: "tikha-masala",
-    name: "Spicy Masala Tikha Puri",
-    serial: "02 / TIKHA",
+    id: "masala-puri",
+    name: "Masala Puri",
+    serial: "01 / MASALA",
     description:
       "Zesty puris tossed in homemade Maharashtrian spice rub, Kashmiri chilli & amchur.",
     badge: "🌶 Spicy Zing",
     badgeVariant: "turmeric",
-    imagePath: "/images/product-tikha.webp",
-    imageAlt: "Spicy Masala Tikha puris in a bowl",
+    imagePath: "/images/puri%20image%204.png",
+    imageAlt: "Homemade masala puris in a bowl",
     packSizes: [
       { size: "250g", price: "TODO_PRICE_250G" },
       { size: "500g", price: "TODO_PRICE_500G" },
       { size: "1 kg", price: "TODO_PRICE_1KG" },
     ],
-    hasPhoto: false,
-  },
-  {
-    id: "festive-combo",
-    name: "Festive Combo Hamper Box",
-    serial: "03 / COMBO",
-    description:
-      "Mix assortment of Ajwain & Tikha puris packed in an artisanal box for friends & family.",
-    badge: "🎁 Gift Box",
-    badgeVariant: "maroon",
-    imagePath: "/images/product-combo.webp",
-    imageAlt: "Festive combo hamper box with assorted puris",
-    packSizes: [{ size: "Custom", price: "Ask on WhatsApp" }],
-    hasPhoto: false,
+    hasPhoto: true,
   },
 ];
 
@@ -170,9 +140,8 @@ export const brandPoints: BrandPoint[] = [
 export const orderSteps: OrderStep[] = [
   {
     number: 1,
-    title: "Choose Pack & Spice Level",
-    description:
-      "Classic Ajwain, Spicy Tikha, or Mix Combo in 250g, 500g, or 1kg.",
+    title: "Choose Your Pack Size",
+    description: "Masala Puri available in 250g, 500g, or 1kg packs.",
     variant: "turmeric",
   },
   {

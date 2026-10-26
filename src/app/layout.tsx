@@ -25,13 +25,12 @@ const caveat = Caveat({
 
 export const metadata: Metadata = {
   title: `${siteConfig.name} — ${siteConfig.tagline} | Homemade Namkeen Puri in Pune`,
-  description: `Order fresh, homemade Namkeen Puri made with love by ${founder.name}. Crispy Ajwain & Methi puris, Spicy Masala Tikha. Delivering across Pune. Order on WhatsApp!`,
+  description: `Order fresh, homemade Masala Puri made with love by ${founder.name}. Delivering across Pune. Order on WhatsApp!`,
   keywords: [
     "namkeen puri",
     "homemade snacks",
     "Pune snacks",
     "crispy puri",
-    "ajwain puri",
     "masala puri",
     "Indian snacks online",
     "WhatsApp order",

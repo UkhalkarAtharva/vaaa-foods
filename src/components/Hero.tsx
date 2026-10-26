@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { siteConfig, deliveryAreas } from "@/content/site";
 import { buildWhatsAppLink } from "@/lib/whatsapp";
 import { SesameSeed, CurryLeaf, CrumbCluster } from "./Doodles";
@@ -58,7 +59,7 @@ export function Hero() {
         >
           <span className="w-2 h-2 rounded-full bg-coriander" />
           <span className="font-sans text-xs font-bold uppercase tracking-wider text-ink">
-            Namaskar! Mother &amp; Daughter Kitchen • Pune
+            Namaskar! A Mother&apos;s Kitchen • Pune
           </span>
         </motion.div>
 
@@ -92,23 +93,21 @@ export function Hero() {
           </div>
 
           {/* Rotating Circular Badge */}
-          <div className="absolute -bottom-5 -left-3 z-20">
+          <div className="absolute top-4 left-4 z-20">
             <RotatingBadge />
           </div>
 
           {/* Polaroid Frame */}
           <div className="bg-white p-3.5 pb-5 rounded-3xl border-2 border-ink shadow-tactile-lg -rotate-1">
-            <div className="w-full aspect-[4/3] rounded-2xl overflow-hidden relative border-2 border-ink bg-[#FFFBF0] flex items-center justify-center text-center p-4">
-              {/* Photo or labeled placeholder */}
-              <div className="flex flex-col items-center justify-center gap-1.5">
-                <span className="text-3xl">🥟</span>
-                <span className="font-serif font-bold text-maroon text-sm">
-                  Freshly rolled &amp; fried puris
-                </span>
-                <span className="font-mono text-[10px] text-ink-muted bg-sand/60 px-2 py-0.5 rounded-full border border-ink/20">
-                  TODO_HERO_PHOTO
-                </span>
-              </div>
+            <div className="w-full aspect-[4/3] rounded-2xl overflow-hidden relative border-2 border-ink bg-[#FFFBF0]">
+              <Image
+                src="/images/puri%20image%203.png"
+                alt="Freshly made puris served with chutney"
+                fill
+                priority
+                sizes="(max-width: 640px) 90vw, 448px"
+                className="object-cover"
+              />
 
               <div className="absolute bottom-2 left-2 bg-[#FFF6E3]/95 border border-ink/30 px-2 py-0.5 rounded-md text-[10px] font-hand font-bold text-maroon shadow-sm">
                 Freshly rolled &amp; fried 🌿
@@ -118,7 +117,7 @@ export function Hero() {
             {/* Handwritten Caption */}
             <div className="mt-3 flex items-center justify-between px-1">
               <span className="font-hand text-lg text-ink font-bold">
-                Crispy Ajwain &amp; Methi Puris
+                Fresh Masala Puris
               </span>
               <span className="font-mono text-[11px] font-bold text-coriander bg-coriander-light border border-coriander/30 px-2.5 py-0.5 rounded-full">
                 Handmade in Pune 💛

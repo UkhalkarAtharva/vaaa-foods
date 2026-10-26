@@ -8,7 +8,7 @@ import { Send, CheckCheck } from "lucide-react";
 
 export function HowItWorks() {
   const sampleOrderLink = buildWhatsAppLink({
-    product: "Classic Ajwain Puri",
+    product: "Masala Puri",
     pack: "500g",
     note: "Please deliver to Pune",
   });
@@ -69,7 +69,7 @@ export function HowItWorks() {
         <div className="bg-[#D9FDD3] rounded-2xl rounded-tr-none p-3 border border-[#B2D8A7] shadow-sm ml-6 flex flex-col gap-1.5">
           <p className="font-sans text-xs text-[#111B21] leading-relaxed">
             &ldquo;Namaste Varsha ji! I&apos;d like to order{" "}
-            <strong>500g Classic Ajwain Puri</strong> to{" "}
+            <strong>500g Masala Puri</strong> to{" "}
             <strong>Pune</strong>. Please confirm pricing and delivery timing 🙏&rdquo;
           </p>
           <div className="flex items-center justify-end gap-1 text-[10px] text-[#667781]">

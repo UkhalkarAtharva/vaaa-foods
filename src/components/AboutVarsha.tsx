@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { founder } from "@/content/site";
 
 export function AboutVarsha() {
@@ -17,12 +18,14 @@ export function AboutVarsha() {
           </span>
         </div>
 
-        {/* Founder Portrait / Placeholder */}
-        <div className="w-28 h-28 mx-auto rounded-full overflow-hidden border-4 border-turmeric shadow-tactile my-3 bg-cream flex flex-col items-center justify-center text-center p-2">
-          <span className="text-3xl mb-1">👩‍🍳</span>
-          <span className="font-mono text-[9px] font-bold text-ink-muted">
-            TODO_VARSHA_PHOTO
-          </span>
+        <div className="w-28 h-28 mx-auto rounded-full overflow-hidden border-4 border-turmeric shadow-tactile my-3 bg-cream relative">
+          <Image
+            src={founder.imagePath}
+            alt={founder.imageAlt}
+            fill
+            sizes="112px"
+            className="object-cover"
+          />
         </div>
 
         {/* Quote */}
